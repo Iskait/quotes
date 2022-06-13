@@ -1,0 +1,53 @@
+.fieldquote {
+
+    &__container {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    &__box {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    &__title {
+        transition: color 0.5s;
+        font-size: 28px;
+        font-weight: 500;
+        &::before {
+            content: "❝";
+            margin-right: 10px;
+        }
+        opacity: 0;
+    }
+
+    &__author {
+        transition: color 0.5s;
+        align-self: flex-end;
+        margin: 20px 0;
+        &::before {
+            content: "- ";
+        }
+        opacity: 0;
+    }
+
+    &__button {
+        align-self: flex-end;
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.5s;
+    }
+}
+.active {
+    transition: opacity 1.5s;
+    opacity: 1;
+}
+
+
+    
+
