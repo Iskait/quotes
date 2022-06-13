@@ -10,15 +10,19 @@ function FieldQuote() {
   const authorRef = useRef();
   const btnRef = useRef();
   
-  useEffect(() => {
-      dispatch(fetchQuotes(url));
-      changeColors();
-  }, [dispatch])
+  const toggleActive = () => {
+    const fields = [quotesRef.current, authorRef.current];
+    fields.forEach(v=>v.classList.remove('active'));
+    setTimeout(() => {
+      fields.forEach(v=>v.classList.add('active'));
+    })
+  }
 
   const getQuote = () => {
     if (status === 'idle') {
       dispatch(fetchQuotes(url));
       changeColors();
+      toggleActive();
     } else {
       dispatch(getNewQuote());
       changeColors();
@@ -45,13 +49,12 @@ function FieldQuote() {
     btnRef.current.style.backgroundColor = rndmColor;
     document.body.style.backgroundColor = rndmColor;
   }
-  const toggleActive = () => {
-    const fields = [quotesRef.current, authorRef.current];
-    fields.forEach(v=>v.classList.remove('active'));
-    setTimeout(() => {
-      fields.forEach(v=>v.classList.add('active'));
-    })
-  }
+
+  useEffect(() => {
+    dispatch(fetchQuotes(url));
+    changeColors();
+    toggleActive();
+}, [dispatch])
 
   return (
     <div className="fieldquote">
