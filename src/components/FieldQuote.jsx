@@ -26,7 +26,6 @@ function FieldQuote() {
     } else {
       dispatch(getNewQuote());
       changeColors();
-      toggleActive();
     }
   }
   const changeColors = () => {
@@ -48,6 +47,7 @@ function FieldQuote() {
     authorRef.current.style.color = rndmColor;
     btnRef.current.style.backgroundColor = rndmColor;
     document.body.style.backgroundColor = rndmColor;
+    toggleActive();
   }
 
   useEffect(() => {
